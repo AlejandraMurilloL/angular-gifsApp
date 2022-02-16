@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-busqueda',
@@ -6,11 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styles: [
   ]
 })
-export class BusquedaComponent implements OnInit {
+export class BusquedaComponent {
 
-  constructor() { }
+  @ViewChild('txtBuscar') txtBuscar!: ElementRef<HTMLInputElement>;
 
-  ngOnInit(): void {
+  buscar(): void {
+    const valor = this.txtBuscar.nativeElement.value;
+    this.txtBuscar.nativeElement.value = '';
   }
-
 }
